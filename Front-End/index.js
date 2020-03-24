@@ -28,7 +28,7 @@ const renderAllTops = tops => {
         topDiv.appendChild(renderedTop)
     })
     topCon.prepend(topDiv)
-    const fart = topDiv.getElementsByTagName("div")
+    const fart = topDiv.getElementsByTagName("div")[0]
     fart.className = "carousel-item active"
     topCon.prepend(topOl)
     const poop = topOl.getElementsByTagName("li")
