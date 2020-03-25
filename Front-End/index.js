@@ -7,21 +7,22 @@ document.addEventListener("DOMContentLoaded", function() {
     selectBottoms();
     selectShoes();
 
-    createOutfit()
+    toggleMenu()
+    // createOutfit()
 });
 
-const createBtn = document.getElementById("ENTER BUTTON ID")
-const createForm = document.getElementById("outfit-form")
 
 function toggleMenu() {
-createBtn.addEventListener("click", () => {
-    createBtn = !createBtn;
-    if (createBtn) {
-      createForm.style.display = "block";
-    } else {
-      createForm.style.display = "none";
-    }
-  })
+    const createBtn = document.getElementById("ENTER BUTTON ID")
+    const createForm = document.getElementById("outfit-form")
+    createBtn.addEventListener("click", () => {
+        createBtn = !createBtn;
+        if (createBtn) {
+        createForm.style.display = "block";
+        } else {
+        createForm.style.display = "none";
+        }
+    })
 };
 
 const getTops = () => {
