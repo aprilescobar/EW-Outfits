@@ -2,6 +2,8 @@ document.addEventListener("DOMContentLoaded", function() {
     getTops();
     getBottoms();
     getShoes();
+
+    selectTop();
 });
 
 
@@ -37,6 +39,16 @@ function renderItems(items, articleCon) {
     let activeTop = articleCon.children[0]
     activeTop.className = "carousel-item active"
 }
+
+const selectTop = () => {
+    const topOptions = document.getElementById("top-inner")
+    const currentTop = document.getElementById("top-user-input").querySelector("img")
+    topOptions.addEventListener("click", e => {
+        currentTop.src = e.target.src
+        return currentTop
+    })
+}
+
 
 
 // const renderItems = items => {
