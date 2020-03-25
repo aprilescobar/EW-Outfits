@@ -10,6 +10,19 @@ document.addEventListener("DOMContentLoaded", function() {
     createOutfit()
 });
 
+const createBtn = document.getElementById("ENTER BUTTON ID")
+const createForm = document.getElementById("outfit-form")
+
+function toggleMenu() {
+createBtn.addEventListener("click", () => {
+    createBtn = !createBtn;
+    if (createBtn) {
+      createForm.style.display = "block";
+    } else {
+      createForm.style.display = "none";
+    }
+  })
+};
 
 const getTops = () => {
     const articleCon = document.getElementById("top-inner")
