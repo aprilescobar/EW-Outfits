@@ -11,26 +11,40 @@ document.addEventListener("DOMContentLoaded", function() {
 
 const getTops = () => {
     const articleCon = document.getElementById("top-inner")
+    const articleIndic = document.getElementById("top-indicators")
+    const article = "top"
     fetch("http://localhost:3000/tops")
     .then( resp => resp.json())
-    .then( tops => renderItems(tops, articleCon))
+    .then( tops => renderItems(tops, articleCon, articleIndic, article))
 }
 
 const getBottoms = () => {
     const articleCon = document.getElementById("bottom-inner")
+    const articleIndic = document.getElementById("bottom-indicators")
+    const article = "bottom"
     fetch("http://localhost:3000/bottoms")
     .then( resp => resp.json())
-    .then( bottoms => renderItems(bottoms, articleCon))
+    .then( bottoms => renderItems(bottoms, articleCon, articleIndic, article))
 }
 const getShoes = () => {
     const articleCon = document.getElementById("shoe-inner")
+    const articleIndic = document.getElementById("shoe-indicators")
+    const article = "shoe"
     fetch("http://localhost:3000/shoes")
     .then( resp => resp.json())
-    .then( shoes => renderItems(shoes, articleCon))
+    .then( shoes => renderItems(shoes, articleCon, articleIndic, article))
 }
 
-function renderItems(items, articleCon) {
+function renderItems(items, articleCon, articleIndic, article) {
+    let num = 0
     items.forEach( item => {
+        const indicLineItem = document.createElement("li")
+        indicLineItem.innerHTML = `
+            <li data-target="#${article}CarouselIndicators" data-slide-to="${num}"></li>
+        `
+        num++
+        articleIndic.appendChild(indicLineItem)
+
         const carouselItem = document.createElement("div")
         carouselItem.className="carousel-item" //first should be active(use if statement)
         carouselItem.innerHTML = `
@@ -40,6 +54,9 @@ function renderItems(items, articleCon) {
     })
     let activeTop = articleCon.children[0]
     activeTop.className = "carousel-item active"
+
+    let activeTopIndicator = articleIndic.children[0]
+    activeTopIndicator.className = "active"
 }
 
 const selectTop = () => {
