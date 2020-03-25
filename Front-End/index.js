@@ -5,7 +5,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
     selectTop();
     selectBottoms();
-    selectShoes;
+    selectShoes();
+
+    createOutfit()
 });
 
 
@@ -47,6 +49,7 @@ function renderItems(items, articleCon, articleIndic, article) {
 
         const carouselItem = document.createElement("div")
         carouselItem.className="carousel-item" //first should be active(use if statement)
+        carouselItem.dataset.id = item.id
         carouselItem.innerHTML = `
             <img class="d-block w-100" src=${item.img_url} alt="item_id_${item.id}">
         `
@@ -86,47 +89,10 @@ const selectShoes = () => {
     })
 }
 
-
-
-// const renderItems = items => {
-//     const topCon= document.getElementById('carouselExampleIndicators')
-//     const topOl = document.createElement("ol")
-//     const topDiv = document.createElement("div")
-//     let num = 0
-//     topDiv.className = "carousel-inner"
-//     topOl.className = "carousel-indicators"
-//     tops.forEach( top => {
-        
-//         let topOlInfo = setCaroLi(num)
-//         topOl.appendChild(topOlInfo)
-//         num++
-//         let renderedTop = renderTopDiv(top)
-//         topDiv.appendChild(renderedTop)
-//     })
-//     topCon.prepend(topDiv)
-//     const fart = topDiv.getElementsByTagName("div")[0]
-//     fart.className = "carousel-item active"
-//     topCon.prepend(topOl)
-//     const poop = topOl.getElementsByTagName("li")
-//     poop[0].className = "active"
-//     console.log(poop)
-// }
-
-// const setCaroLi = (num) => {
-//     const topCard = document.createElement("li")
-//     topCard.dataset.target = "#carouselExampleIndicators"
-//     topCard.dataset.slideTo = num
-//     return topCard
-// }
-
-// const renderTopDiv = top => {
-//     const topCard = document.createElement("div")
-//     topCard.className = "carousel-item"
-//     topCard.innerHTML = `
-//                 <img class="d-block w-100" src="${top.img_url}" alt="First slide">
-//     `
-//     return topCard
-// }
-
-
-
+const createOutfit = () => {
+    const form = document.getElementById("outfit-form")
+    form.addEventListener("submit", e => {
+        e.preventDefault();
+        console.log(e.target)
+    })
+}
