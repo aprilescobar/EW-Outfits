@@ -24,7 +24,14 @@ ws3 = Shoe.create(designer: "Nike", name: "3. White High Tops", img_url: "https:
 ws4 = Shoe.create(designer: "Nike", name: "4. Black/Red Slides" , img_url: "https://c.static-nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/98ec025b-e2c7-4841-964a-3960a6f38149/benassi-duo-ultra-womens-slide-KyTDpnWq.jpg")
 ws5 = Shoe.create(designer: "Nike", name: "5. White Air Force", img_url: "https://c.static-nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/acxwowgwxpyawi3ylaqy/air-force-1-07-womens-shoe-KyTwDPGG.jpg")
 p "Shoes were seeded!"
+
+o1 = Outfit.create(name: "Basic", season: "Spring", likes: 8, top_id: 4, bottom_id: 1, shoe_id: 5)
+o2 = Outfit.create(name: "Lazy", season: "Fall", likes: 10, top_id: 2, bottom_id: 2, shoe_id: 2)
+o3 = Outfit.create(name: "Athlesure", season: "Summer", likes: 6, top_id: 4, bottom_id: 3, shoe_id: 1)
+
+
+p "Outfits were seeded"
+p "."
+p "."
+p "."
 p "DAIRY!!! (everything was seeded yo)"
-
-
-
