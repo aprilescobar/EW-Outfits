@@ -2,6 +2,10 @@ document.addEventListener("DOMContentLoaded", function() {
     getTops();
     getBottoms();
     getShoes();
+
+    selectTop();
+    selectBottoms();
+    selectShoes;
 });
 
 
@@ -54,6 +58,34 @@ function renderItems(items, articleCon, articleIndic, article) {
     let activeTopIndicator = articleIndic.children[0]
     activeTopIndicator.className = "active"
 }
+
+const selectTop = () => {
+    const topOptions = document.getElementById("top-inner")
+    const currentTop = document.getElementById("top-user-input")
+    topOptions.addEventListener("click", e => {
+        currentTop.src = e.target.src
+        return currentTop
+    })
+}
+
+const selectBottoms = () => {
+    const bottomOptions = document.getElementById("bottom-inner")
+    const currentBottom = document.getElementById("bottom-user-input")
+    bottomOptions.addEventListener("click", e => {
+        currentBottom.src = e.target.src
+        return currentBottom
+    })
+}
+
+const selectShoes = () => {
+    const shoeOptions = document.getElementById("shoe-inner")
+    const currentShoe = document.getElementById("shoe-user-input")
+    shoeOptions.addEventListener("click", e => {
+        currentShoe.src = e.target.src
+        return currentShoe
+    })
+}
+
 
 
 // const renderItems = items => {
