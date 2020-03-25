@@ -116,6 +116,9 @@ const createOutfit = () => {
     const form = document.getElementById("outfit-form")
     form.addEventListener("submit", e => {
         e.preventDefault();
-        console.log(e.target)
+        const something = document.getElementById("something")
+        
     })
 }
+
+
