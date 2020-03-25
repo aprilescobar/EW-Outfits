@@ -1,10 +1,15 @@
-let addOutfit = false;
-let thing = true;
+let addOutfit = true;
+let addThing = false;
+
+window.onload = function() {
+    document.getElementById('everythangCreate').style.display = 'none';
+  };
+
 document.addEventListener("DOMContentLoaded", function() {
     let createBtn = document.getElementById("create-btn")
     const createForm = document.getElementById("everythangCreate")
-    const otherThing = document.getElementById("something")
-
+    const thing = document.getElementById("something")
+    
     getTops();
     getBottoms();
     getShoes();
@@ -17,17 +22,16 @@ document.addEventListener("DOMContentLoaded", function() {
         
     createBtn.addEventListener("click", () => {
         addOutfit = !addOutfit;
-        thing = !thing;
-        if (thing) {
+        addThing = !addThing;
+        if (addOutfit) {
             createForm.style.display = "none";
-            otherThing.style.display = "block";
+            thing.style.display = "block";
         } else {
             createForm.style.display = "block";
-            otherThing.style.display = "none";
+            thing.style.display = "none";
         }
     })
 });
-
 
 
 const getTops = () => {
