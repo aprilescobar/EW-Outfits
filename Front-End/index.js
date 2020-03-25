@@ -5,7 +5,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
     selectTop();
     selectBottoms();
-    selectShoes;
+    selectShoes();
+
+    createOutfit()
 });
 
 
@@ -47,6 +49,7 @@ function renderItems(items, articleCon, articleIndic, article) {
 
         const carouselItem = document.createElement("div")
         carouselItem.className="carousel-item" //first should be active(use if statement)
+        carouselItem.dataset.id = item.id
         carouselItem.innerHTML = `
             <img class="d-block w-100" src=${item.img_url} alt="item_id_${item.id}">
         `
@@ -86,6 +89,13 @@ const selectShoes = () => {
     })
 }
 
+const createOutfit = () => {
+    const form = document.getElementById("outfit-form")
+    form.addEventListener("submit", e => {
+        e.preventDefault();
+        console.log(e.target)
+    })
+}
 
 
 // const renderItems = items => {

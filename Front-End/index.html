@@ -14,34 +14,53 @@
     <div class="container" class="everything">
         <div class="row" >
             <div class="col" class="carousel slide">
-              Preview Outfit/Template<br>
+              <h3>Create an Outfit!</h3>
 
-              <form>
+              <form id="outfit-form">
                 <div class="form-group">
-                  <h3>Click on a Top!</h3>
+                  <h5>Click on a Top!</h5>
                   <input type="image" class="d-block w-100" id="top-user-input" src="https://www.victoriassecret.com/p/760x1013/tif/24/ed/24ed839540694433a0317339b06630a5/V495974_OM_F.jpg" alt="Tops">
                 </div>
                 <div class="form-group">
-                  <h3>Click on a Bottom!</h3>
+                  <h5>Click on a Bottom!</h5>
                   <input type="image" class="d-block w-100" id="bottom-user-input" src="https://calvinklein.scene7.com/is/image/CalvinKlein/51475735_001_alternate2?wid=852&hei=1122&fmt=jpeg&qlt=85%2C0&resMode=sharp2&op_usm=0.9%2C1.0%2C8%2C0&iccEmbed=0" alt="Bottoms">
                 </div>
                 <div class="form-group">
-                  <h3>Click on a Shoe!</h3>
+                  <h5>Click on a Shoe!</h5>
                   <input type="image" class="d-block w-100" id="shoe-user-input" src="https://image1.masterfile.com/getImage/NjEwOC0wNTg2OTQ1MGVuLjAwMDAwMDAw=AFvWAh/6108-05869450en_Masterfile.jpg" alt="Shoes">
                 </div>
+                <div class="form-group">
+                  <label >Outfit Name:</label>
+                  <input type="text" class="form-control" class="forms" placeholder="Examples: Date Night 🌹, Basic 💁, That Drip💧, etc.">
+                </div>
+                <div class="form-group">
+                  <label >Select Season:</label>
+                  <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="Seasons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Seasons
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="Seasons">
+                      <a class="dropdown-item">Spring</a>
+                      <a class="dropdown-item">Summer</a>
+                      <a class="dropdown-item">Fall</a>
+                      <a class="dropdown-item">Winter</a>
+                    </div>
+                  </div>
+                </div>
+
                 <button type="submit" class="btn btn-primary">Create Outfit!</button>
               </form>
 
 
-              <!-- <h3>Top:</h3>
+              <!-- <h5>Top:</h5>
                 <div class="top-carousel-inner" class="row" id="top-user-input">
                   <img class="d-block w-100" src="https://www.victoriassecret.com/p/760x1013/tif/24/ed/24ed839540694433a0317339b06630a5/V495974_OM_F.jpg" alt="Tops">
                 </div>
-                <h3>Bottom:</h3>
+                <h5>Bottom:</h5>
                 <div  class="top-carousel-inner" class="row" id="bottom-user-input">
                   <img class="d-block w-100" src="https://calvinklein.scene7.com/is/image/CalvinKlein/51475735_001_alternate2?wid=852&hei=1122&fmt=jpeg&qlt=85%2C0&resMode=sharp2&op_usm=0.9%2C1.0%2C8%2C0&iccEmbed=0" alt="Bottoms">
                 </div>
-                <h3>Shoe:</h3>
+                <h5>Shoe:</h5>
                 <div class="top-carousel-inner" class="row" id="shoe-user-input">
                   <img class="d-block w-100" src="https://image1.masterfile.com/getImage/NjEwOC0wNTg2OTQ1MGVuLjAwMDAwMDAw=AFvWAh/6108-05869450en_Masterfile.jpg" alt="Shoes">
                 </div> -->
@@ -49,9 +68,9 @@
 
             </div>
             <div class="col" id="options">
-                Options
+                <h3>Options to Select</h3>
                 <div class="row" id="top-container">
-                  <h3>Tops:</h3>
+                  <h5>Select a Top:</h5>
                     <div id="topCarouselIndicators" class="carousel slide" data-ride="carousel">
                         <ol class="carousel-indicators" id="top-indicators">
                           <!-- <li data-target="#topCarouselIndicators" data-slide-to="0" class="active"></li>
@@ -80,7 +99,7 @@
                       </div>
                 </div>
                 <div class="row" id="bottom-container">
-                  <h3>Bottoms:</h3>
+                  <h5>Select a Bottom:</h5>
                     <div id="bottomCarouselIndicators" class="carousel slide" data-ride="carousel">
                         <ol class="carousel-indicators" id="bottom-indicators">
                           <!-- <li data-target="#bottomCarouselIndicators" data-slide-to="0" class="active"></li>
@@ -109,7 +128,7 @@
                       </div>
                 </div>
                 <div class="row" id="shoes">
-                  <h3>Shoes:</h3>
+                  <h5>Select a Shoe:</h5>
                     <div id="shoeCarouselIndicators" class="carousel slide" data-ride="carousel">
                         <ol class="carousel-indicators" id="shoe-indicators">
                           <!-- <li data-target="#shoeCarouselIndicators" data-slide-to="0" class="active"></li>
