@@ -1,4 +1,10 @@
+let addOutfit = false;
+let thing = true;
 document.addEventListener("DOMContentLoaded", function() {
+    let createBtn = document.getElementById("create-btn")
+    const createForm = document.getElementById("everythangCreate")
+    const otherThing = document.getElementById("something")
+
     getTops();
     getBottoms();
     getShoes();
@@ -8,21 +14,21 @@ document.addEventListener("DOMContentLoaded", function() {
     selectShoes();
 
     createOutfit()
+        
+    createBtn.addEventListener("click", () => {
+        addOutfit = !addOutfit;
+        thing = !thing;
+        if (thing) {
+            createForm.style.display = "none";
+            otherThing.style.display = "block";
+        } else {
+            createForm.style.display = "block";
+            otherThing.style.display = "none";
+        }
+    })
 });
 
-const createBtn = document.getElementById("ENTER BUTTON ID")
-const createForm = document.getElementById("outfit-form")
 
-function toggleMenu() {
-createBtn.addEventListener("click", () => {
-    createBtn = !createBtn;
-    if (createBtn) {
-      createForm.style.display = "block";
-    } else {
-      createForm.style.display = "none";
-    }
-  })
-};
 
 const getTops = () => {
     const articleCon = document.getElementById("top-inner")
