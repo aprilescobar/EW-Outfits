@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function() {
     selectBottoms();
     selectShoes();
 
-    createOutfit()
+    createOutfit();
         
     createBtn.addEventListener("click", () => {
         addOutfit = !addOutfit;
@@ -90,6 +90,7 @@ const selectTop = () => {
     const currentTop = document.getElementById("top-user-input")
     topOptions.addEventListener("click", e => {
         currentTop.src = e.target.src
+        currentTop.dataset.id = e.target.parentNode.dataset.id
         return currentTop
     })
 }
@@ -99,6 +100,7 @@ const selectBottoms = () => {
     const currentBottom = document.getElementById("bottom-user-input")
     bottomOptions.addEventListener("click", e => {
         currentBottom.src = e.target.src
+        currentBottom.dataset.id = e.target.parentNode.dataset.id
         return currentBottom
     })
 }
@@ -108,6 +110,7 @@ const selectShoes = () => {
     const currentShoe = document.getElementById("shoe-user-input")
     shoeOptions.addEventListener("click", e => {
         currentShoe.src = e.target.src
+        currentShoe.dataset.id = e.target.parentNode.dataset.id
         return currentShoe
     })
 }
@@ -116,7 +119,39 @@ const createOutfit = () => {
     const form = document.getElementById("outfit-form")
     form.addEventListener("submit", e => {
         e.preventDefault();
-        
+        // console.log(e.target)
+        const actualButton = e.target
+        const test = actualButton.getElementById("booty")
+        console.log(test)
+        if (actualButton.id === "booty") {
+            console.log("hello")
+    //     let nameVal = document.getElementById("outfit-name-input").value
+    //     let topObjVal = document.getElementById("top-user-input").dataset.id
+    //     let bottomObjVal = document.getElementById("bottom-user-input").dataset.id
+    //     let shoeObjVal = document.getElementById("shoe-user-input").dataset.id
+    //     let seasonObjVal = "Spring"
+    //         fetch("http://localhost:3000/outfits", {
+    //             method: "POST",
+    //             headers: {
+    //                 "content-type": "application/json",
+    //                 "accept": "application/json" 
+    //             },
+    //             body: JSON.stringify({
+    //                 name: nameVal,
+    //                 season: seasonObjVal, 
+    //                 likes: 0,
+    //                 top_id: topObjVal, 
+    //                 bottom_id: bottomObjVal, 
+    //                 shoe_id: shoeObjVal
+    //             })
+    //         })
+    //     .then(resp => resp.json())
+    //     .then( outfitObj => console.log(outfitObj))
+    //     form.reset()
+        }
+    })
+
+
         // grab the 5 input values
         // 1. outfit name
         // 2. top object
@@ -129,7 +164,7 @@ const createOutfit = () => {
         // 9. invoke form reset()
         // 10. capture the return message from the post fetch
         // 11. push that return message value into outfit array
-    })
-}
+    }
+
 
 
