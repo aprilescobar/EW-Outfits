@@ -9,10 +9,26 @@ class CommentsController < ApplicationController
         comment = Comment.find(params[:id])
         render json: comment, except: [:updated_at]
     end
+    def create
+        comment = Comment.create(comment)
+        render json: comment, except: [:updated_at], status:201
+    end
+
+    def update
+        comment = Comment.find(params[:id])
+        comment.update(comment_params)
+        render json: comment, except: [:updated_at], status:201
+    end
 
     def destroy
         comment = Comment.find(params[:id])
         comment.destroy 
     end
 
+    private
+    def comment_params
+        params.require(:comment).permit(:name, :text, :outfit_id)
+    end
+
 end
+
