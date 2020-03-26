@@ -1,5 +1,6 @@
 let addOutfit = true;
 let addThing = false;
+let cmtHideShow = false;
 
 window.onload = function() {
     document.getElementById('everythangCreate').style.display = 'none';
@@ -9,6 +10,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let createBtn = document.getElementById("create-btn")
     const createForm = document.getElementById("everythangCreate")
     const thing = document.getElementById("something")
+    const outfitCardCollection = document.getElementById("user-outfits-collection")
     
     getTops();
     getBottoms();
@@ -31,6 +33,15 @@ document.addEventListener("DOMContentLoaded", function() {
         } else {
             createForm.style.display = "block";
             thing.style.display = "none";
+        }
+    })
+    outfitCardCollection.addEventListener ("click", () => {
+        const com = document.getElementById("outfit-1-comments")
+        cmtHideShow = !cmtHideShow;
+        if (cmtHideShow) {
+            com.style.display = "block";
+        } else {
+            com.style.display = "none";
         }
     })
 });
@@ -200,15 +211,13 @@ const renderOutfit = (outfit, num) =>{
 }
 
 const buttons = () => {
+    
     const outfitCardCollection = document.getElementById("user-outfits-collection")
     outfitCardCollection.addEventListener("click", function(e) {
         if (e.target.className === "like"){
             incrementLike(e.target)
         }
-        if (e.target.className === "cmt") {
-            console.log(e.target)
-        }
-
+        
     })
 }
 
@@ -272,6 +281,25 @@ const incrementLike = (likeButton) => {
 // }
 
 
+
+    // COMMENTS SECTION
+    // event listener in place for comment button
+    // on click implement hide and seek functionality (seek)
+    // on seek, the comments card displays (pushing the other outfit cards down)
+    //  in comments card:
+    //      a) display existing comments (div)
+    //          i) designate comment name and text to li element
+    //         ii) include delete button
+    //      b) new comment form
+    //          i) form has name input
+    //         ii) form has text input
+    //        iii) form has submit button
+    //          v) form needs to set comment dataset id
+    //         iv) form needs to capture id of outfit
+    //      c) fetch requests for get, post and delete
+    //      
+    // 
+    
 
 
     // Super Checklist
