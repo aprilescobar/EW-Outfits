@@ -2,7 +2,7 @@ class OutfitsController < ApplicationController
 
     def index
         outfits = Outfit.all
-        render json: outfits.sort {|a, b| b.total_score <=> a.total_score}, except: [:updated_at]
+        render json: outfits.sort {|a, b| b.total_score <=> a.total_score}, except: [:updated_at] 
     end
 
     def show

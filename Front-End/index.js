@@ -19,6 +19,7 @@ document.addEventListener("DOMContentLoaded", function() {
     selectShoes();
 
     createOutfit();
+    getBestOutfits();
         
     createBtn.addEventListener("click", () => {
         addOutfit = !addOutfit;
@@ -72,7 +73,7 @@ function renderItems(items, articleCon, articleIndic, article) {
 
         const carouselItem = document.createElement("div")
         carouselItem.className="carousel-item" //first should be active(use if statement)
-        carouselItem.dataset.id = item.id
+        carouselItem.dataset.id = `${article} ${item.id}`
         carouselItem.innerHTML = `
             <img class="d-block w-100" src=${item.img_url} alt="item_id_${item.id}">
         `
@@ -142,10 +143,7 @@ const createOutfit = () => {
                 })
             })
         .then(resp => resp.json())
-        .then( outfit => { 
-            renderOutfit(outfit),
-            alert(" Dope Fit. Time to see if you're top 3 😎")
-        })
+        .then( alert(" Dope Fit. Time to see if you're top 3 😎"))
         form.reset()
         document.getElementById('everythangCreate').style.display = 'none';
         document.getElementById("something").style.display = 'block';
@@ -153,50 +151,91 @@ const createOutfit = () => {
         addThing = !addThing;
         }
     })
-        // grab the 5 input values
-        // √ 1. outfit name
-        // √ 2. top object
-        // √ 3. bottom object
-        // √ 4. shoe object
-        // √ 5. season yo
-        //     √√√√√ a)drop down function
-        // √ 6. likes set to 0
+}
 
-        ////// 7. comments set to empty array []
-        // √ 8. make a post fetch to the db
-        // √ 9. invoke form reset()
-        // √ 10. capture the return message from the post fetch
-        ////// 11. push that return message value into outfit array
-    }
+const getBestOutfits = () =>{
+    fetch("http://localhost:3000/outfits")
+    .then(resp => resp.json())
+    .then(outfits => renderBestOutfits(outfits)) 
+}
 
-const renderOutfit = outfit => {
-    const div1 = document.getElementById('justWork')
-    div1.className = "rows"
+const renderBestOutfits = outfits => {
+    const numOne = outfits[0];
+    const numTwo = outfits[1];
+    const numThree = outfits[2]
 
-    const div2 = document.createElement('div')
-    div2.className = "card"
+    renderOutfit(numOne, 1)
+    renderOutfit(numTwo, 2)
+    renderOutfit(numThree, 3)
+}
 
-    const h4 = document.createElement('h4')
-    h4.id = outfit.id
-    h4.innerText = outfit.name
+const renderOutfit = (outfit, num) =>{
+    let nameEl = document.getElementById(`outfit-${num}-name`)
+    nameEl.innerText = outfit.name
+    
+    let topEl = document.getElementById(`top-${num}-user-input`)
+    let topImg = document.querySelector(`[data-id="top ${outfit.top_id}"]`).querySelector('img').src
+    topEl.src = topImg
 
+    let bottomEl = document.getElementById(`bottom-${num}-user-input`)
+    let bottomImg = document.querySelector(`[data-id="bottom ${outfit.bottom_id}"]`).querySelector('img').src
+    bottomEl.src = bottomImg
+
+    let shoeEl = document.getElementById(`shoe-${num}-user-input`)
+    let shoeImg = document.querySelector(`[data-id="shoe ${outfit.shoe_id}"]`).querySelector('img').src
+    shoeEl.src = shoeImg
+
+    let likeEl = document.getElementById(`like-outfit-${num}`)
+    likeEl.innerText = `❤️ ${outfit.likes}`
+
+    let cmtEl = document.getElementById(`cmt-outfit-${num}`)
+    cmtEl.dataset.id = outfit.id
+}
+
+
+
+
+
+
+
+
+
+
+
+
+// const renderOutfit = outfit => {
+//     const div1 = document.getElementById('justWork')
+//     div1.className = "rows"
+
+//     const div2 = document.createElement('div')
+//     div2.className = "card"
+
+//     const h4 = document.createElement('h4')
+//     h4.id = outfit.id
+//     h4.innerText = outfit.name
+
+//     const div3 = document.createElement('div')
+//     div3.className = "row"
+
+//     const div4 = document.createElement('div')
+//     div4.className = "card"
     
 
-    div2.innerHTML = `
-    outfit season = ${outfit.season}
-    outfit likes = ${outfit.likes}
-    outfit top_id = ${outfit.top_id}
-    outfit bottom_id = ${outfit.bottom_id}
-    outfit shoe_id = ${outfit.name}
-    topscore = ${outfit.top_id}
-    `
+//     div2.innerHTML = `
+//     outfit season = ${outfit.season}
+//     outfit likes = ${outfit.likes}
+//     outfit top_id = ${outfit.top_id}
+//     outfit bottom_id = ${outfit.bottom_id}
+//     outfit shoe_id = ${outfit.name}
+//     topscore = ${outfit.top_id}
+//     `
 
 
-    div2.appendChild(h4)
-    div1.appendChild(div2)
+//     div2.appendChild(h4)
+//     div1.appendChild(div2)
 
 
-}
+// }
 
 
 
@@ -205,8 +244,8 @@ const renderOutfit = outfit => {
     // Outfits section: increment like button 
     // (fetch "update") for likes button
     // 
-    // score logic on backend model
-    // leaderboard logic on backend model
+    // √ score logic on backend model
+    // √ leaderboard logic on backend model
     // allow js to access logic through controller
     // render leaderboard on the dom
     // hide and seek on the all outfits
