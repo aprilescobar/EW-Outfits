@@ -5,7 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-p "We seeding... it's gonna be legen-- wait for it..."
+p "We seeding..." 
+p "it's gonna be legen--" 
+p "wait for it..."
+
 wt1 = Top.create(designer: "Nike", name: "1. Black LS Crop", score: 3, img_url: "https://c.static-nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/37e50aa6-176f-438f-ba26-932c113c5770/sportswear-womens-seasonal-top-61Vvln.jpg")
 wt2 = Top.create(designer: "Nike", name: "2. Black Sweater", score: 2, img_url: "https://c.static-nike.com/a/images/t_PDP_1280_v1/f_auto,b_rgb:f5f5f5/295d65f5-34b6-47c9-aa31-6bca29df05ff/sportswear-tech-fleece-womens-1-4-zip-top-bkFmqw.jpg")
 wt3 = Top.create(designer: "Nike", name: "3. Black Tube Top", score: 5, img_url: "https://c.static-nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/7880c98c-15e3-4d34-9316-78328bf1c6a1/sportswear-jdi-womens-ribbed-top-Vm2D4G.jpg")
@@ -28,9 +31,19 @@ p "Shoes were seeded!"
 o1 = Outfit.create(name: "Basic", season: "Spring", likes: 8, top_id: 4, bottom_id: 1, shoe_id: 5)
 o2 = Outfit.create(name: "Lazy", season: "Fall", likes: 10, top_id: 2, bottom_id: 2, shoe_id: 2)
 o3 = Outfit.create(name: "Athlesure", season: "Summer", likes: 6, top_id: 4, bottom_id: 3, shoe_id: 1)
-
-
 p "Outfits were seeded"
+
+c1 = Comment.create(name:"Mae", text: "wutttt", outfit_id: 1)
+c2 = Comment.create(name:"James", text: "cool thread", outfit_id: 2)
+c3 = Comment.create(name:"Alex", text: "basic", outfit_id: 3)
+c4 = Comment.create(name:"AJ", text: "cozy", outfit_id: 1)
+c5 = Comment.create(name:"JSON", text: "favorite slut outfit", outfit_id: 2)
+c6 = Comment.create(name:"Lee", text: "6969 occasion", outfit_id: 3)
+c7 = Comment.create(name:"David", text: "s/o to mama Lee for the care package", outfit_id: 1)
+c8 = Comment.create(name:"Adit", text: "I made some bread!", outfit_id: 2)
+p "Comments were seeded"
+
+
 p "."
 p "."
 p "."
