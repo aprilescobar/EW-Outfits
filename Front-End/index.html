@@ -37,18 +37,14 @@
                   <input type="text" class="form-control" class="forms" id="outfit-name-input" placeholder="Examples: Date Night 🌹, Basic 💁, That Drip💧, etc." value="">
                 </div>
                 <div class="form-group">
-                  <label >Select Season:</label>
-                  <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="Seasons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Seasons
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="Seasons">
-                      <a class="dropdown-item">Spring</a>
-                      <a class="dropdown-item">Summer</a>
-                      <a class="dropdown-item">Fall</a>
-                      <a class="dropdown-item">Winter</a>
-                    </div>
-                  </div>
+                  <label for="seasons-select" class="dropdown">Select Season:</label>
+                    <select id="season-select">
+                      <option value="Spring">Spring</option>
+                      <option value="Summer">Summer</option>
+                      <option value="Fall">Fall</option>
+                      <option value="Winter">Winter</option>
+                    </select> 
+              
                 </div>
 
                 <input id="booty" type="submit" class="btn btn-primary">Create Outfit!</input>
