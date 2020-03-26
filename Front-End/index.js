@@ -142,23 +142,44 @@ const createOutfit = () => {
                 })
             })
         .then(resp => resp.json())
-        .then( outfitObj => console.log(outfitObj))
+        .then( alert(" Dope Fit. Time to see if you're top 3 😎"))
         form.reset()
+        document.getElementById('everythangCreate').style.display = 'none';
+        document.getElementById("something").style.display = 'block';
+        addOutfit = !addOutfit;
+        addThing = !addThing;
         }
     })
         // grab the 5 input values
-        // 1. outfit name
-        // 2. top object
-        // 3. bottom object
-        // 4. shoe object
-        // 5. season yo
-        // 6. likes set to 0
+        // √ 1. outfit name
+        // √ 2. top object
+        // √ 3. bottom object
+        // √ 4. shoe object
+        //  5. season yo
+        //      a)drop down function
+        // √ 6. likes set to 0
         // 7. comments set to empty array []
-        // 8. make a post fetch to the db
-        // 9. invoke form reset()
-        // 10. capture the return message from the post fetch
+        // √ 8. make a post fetch to the db
+        // √ 9. invoke form reset()
+        // √ 10. capture the return message from the post fetch
         // 11. push that return message value into outfit array
     }
 
+
+    // Super Checklist
+    // Outfits section: increment like button 
+    // (fetch "update") for likes button
+    // 
+    // score logic on backend model
+    // leaderboard logic on backend model
+    // allow js to access logic through controller
+    // render leaderboard on the dom
+    // hide and seek on the all outfits
+    // 
+    // implement comments feature
+    // full CRUD on comments
+    // hide and seek on comments
+    
+    // 🌎
 
 
