@@ -20,6 +20,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     createOutfit();
     getBestOutfits();
+    buttons();
         
     createBtn.addEventListener("click", () => {
         addOutfit = !addOutfit;
@@ -192,10 +193,38 @@ const renderOutfit = (outfit, num) =>{
 
     let likeEl = document.getElementById(`like-outfit-${num}`)
     likeEl.innerText = `❤️ ${outfit.likes}`
+    likeEl.dataset.id = outfit.id
 
     let cmtEl = document.getElementById(`cmt-outfit-${num}`)
     cmtEl.dataset.id = outfit.id
 }
+
+const buttons = () => {
+    const outfitCardCollection = document.getElementById("user-outfits-collection")
+    outfitCardCollection.addEventListener("click", function(e) {
+        if (e.target.className === "like"){
+            incrementLike(e.target)
+        }
+        if (e.target.className === "cmt") {
+            console.log(e.target)
+        }
+
+    })
+}
+
+const incrementLike = (likeButton) => {
+    let num = likeButton.innerText.split(" ")[1]
+    likeButton.innerText = `❤️ ${++num}`
+    fetch(`http://localhost:3000/outfits/${likeButton.dataset.id}`, {
+        method: "PATCH",
+        headers: {
+            "content-type": "application/json",
+            "accept": "application/json"
+        },
+        body: JSON.stringify({ likes: num })
+    })
+}
+
 
 
 
@@ -251,8 +280,8 @@ const renderOutfit = (outfit, num) =>{
     // 
     // √ score logic on backend model
     // √ leaderboard logic on backend model
-    // allow js to access logic through controller
-    // render leaderboard on the dom
+    // √ allow js to access logic through controller
+    // √ render leaderboard on the dom
     // hide and seek on the all outfits
     // 
     // implement comments feature
