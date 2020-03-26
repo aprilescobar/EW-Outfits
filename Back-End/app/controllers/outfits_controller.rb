@@ -15,6 +15,12 @@ class OutfitsController < ApplicationController
         render json: outfit, except: [:updated_at], status:201
     end
 
+    def update
+        outfit = Outfit.find(params[:id])
+        outfit.update(outfit_params)
+        render json: outfit, except: [:updated_at], status:201
+    end
+
     def destroy
         outfit = Outfit.find(params[:id])
         outfit.destroy 
