@@ -142,7 +142,10 @@ const createOutfit = () => {
                 })
             })
         .then(resp => resp.json())
-        .then( alert(" Dope Fit. Time to see if you're top 3 😎"))
+        .then( outfit => { 
+            renderOutfit(outfit),
+            alert(" Dope Fit. Time to see if you're top 3 😎")
+        })
         form.reset()
         document.getElementById('everythangCreate').style.display = 'none';
         document.getElementById("something").style.display = 'block';
@@ -159,13 +162,43 @@ const createOutfit = () => {
         //     √√√√√ a)drop down function
         // √ 6. likes set to 0
 
-
         ////// 7. comments set to empty array []
         // √ 8. make a post fetch to the db
         // √ 9. invoke form reset()
         // √ 10. capture the return message from the post fetch
         ////// 11. push that return message value into outfit array
     }
+
+const renderOutfit = outfit => {
+    const div1 = document.getElementById('justWork')
+    div1.className = "rows"
+
+    const div2 = document.createElement('div')
+    div2.className = "card"
+
+    const h4 = document.createElement('h4')
+    h4.id = outfit.id
+    h4.innerText = outfit.name
+
+    
+
+    div2.innerHTML = `
+    outfit season = ${outfit.season}
+    outfit likes = ${outfit.likes}
+    outfit top_id = ${outfit.top_id}
+    outfit bottom_id = ${outfit.bottom_id}
+    outfit shoe_id = ${outfit.name}
+    topscore = ${outfit.top_id}
+    `
+
+
+    div2.appendChild(h4)
+    div1.appendChild(div2)
+
+
+}
+
+
 
 
     // Super Checklist
