@@ -275,13 +275,15 @@ const incrementLike = (likeButton) => {
 
 
     // Super Checklist
-    // Outfits section: increment like button 
-    // (fetch "update") for likes button
+    // √√√√√√√√Outfits section: increment like button 
+    // √√√√√√√√√√(fetch "update") for likes button
     // 
-    // √ score logic on backend model
-    // √ leaderboard logic on backend model
-    // √ allow js to access logic through controller
-    // √ render leaderboard on the dom
+    // √√√√√ score logic on backend model
+    // √√√√√ leaderboard logic on backend model
+    // √√√√√ allow js to access logic through controller
+    // √√√√√√ render leaderboard on the dom
+    // 
+    
     // hide and seek on the all outfits
     // 
     // implement comments feature
