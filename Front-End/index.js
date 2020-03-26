@@ -116,8 +116,19 @@ const createOutfit = () => {
     const form = document.getElementById("outfit-form")
     form.addEventListener("submit", e => {
         e.preventDefault();
-        const something = document.getElementById("something")
         
+        // grab the 5 input values
+        // 1. outfit name
+        // 2. top object
+        // 3. bottom object
+        // 4. shoe object
+        // 5. season yo
+        // 6. likes set to 0
+        // 7. comments set to empty array []
+        // 8. make a post fetch to the db
+        // 9. invoke form reset()
+        // 10. capture the return message from the post fetch
+        // 11. push that return message value into outfit array
     })
 }
 
