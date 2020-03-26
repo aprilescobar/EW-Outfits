@@ -145,10 +145,15 @@ const createOutfit = () => {
         .then(resp => resp.json())
         .then( alert(" Dope Fit. Time to see if you're top 3 😎"))
         form.reset()
-        document.getElementById('everythangCreate').style.display = 'none';
-        document.getElementById("something").style.display = 'block';
-        addOutfit = !addOutfit;
-        addThing = !addThing;
+        location.reload();
+        return false;
+
+        // hide button references
+        // document.getElementById('everythangCreate').style.display = 'none';
+        // document.getElementById("something").style.display = 'block';
+        // addOutfit = !addOutfit;
+        // addThing = !addThing;
+
         }
     })
 }
