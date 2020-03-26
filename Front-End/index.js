@@ -125,7 +125,7 @@ const createOutfit = () => {
         let topObjVal = document.getElementById("top-user-input").dataset.id
         let bottomObjVal = document.getElementById("bottom-user-input").dataset.id
         let shoeObjVal = document.getElementById("shoe-user-input").dataset.id
-        let seasonObjVal = "Spring"
+        let seasonObjVal = document.getElementById("season-select").value
             fetch("http://localhost:3000/outfits", {
                 method: "POST",
                 headers: {
@@ -155,14 +155,16 @@ const createOutfit = () => {
         // √ 2. top object
         // √ 3. bottom object
         // √ 4. shoe object
-        //  5. season yo
-        //      a)drop down function
+        // √ 5. season yo
+        //     √√√√√ a)drop down function
         // √ 6. likes set to 0
-        // 7. comments set to empty array []
+
+
+        ////// 7. comments set to empty array []
         // √ 8. make a post fetch to the db
         // √ 9. invoke form reset()
         // √ 10. capture the return message from the post fetch
-        // 11. push that return message value into outfit array
+        ////// 11. push that return message value into outfit array
     }
 
 
