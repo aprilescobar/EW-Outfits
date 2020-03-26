@@ -123,9 +123,9 @@ const createOutfit = () => {
         if (e.target.id === "booty") {
              console.log("hello")
         let nameVal = document.getElementById("outfit-name-input").value
-        let topObjVal = document.getElementById("top-user-input").dataset.id
-        let bottomObjVal = document.getElementById("bottom-user-input").dataset.id
-        let shoeObjVal = document.getElementById("shoe-user-input").dataset.id
+        let topObjVal = document.getElementById("top-user-input").dataset.id.split(" ")[1]
+        let bottomObjVal = document.getElementById("bottom-user-input").dataset.id.split(" ")[1]
+        let shoeObjVal = document.getElementById("shoe-user-input").dataset.id.split(" ")[1]
         let seasonObjVal = document.getElementById("season-select").value
             fetch("http://localhost:3000/outfits", {
                 method: "POST",
