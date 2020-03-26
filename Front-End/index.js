@@ -1,16 +1,24 @@
 let addOutfit = true;
 let addThing = false;
-let cmtHideShow = false;
+let cmtHideShow1 = false;
+let cmtHideShow2 = false;
+let cmtHideShow3 = false;
 
 window.onload = function() {
     document.getElementById('everythangCreate').style.display = 'none';
+    document.getElementById("outfit-1-comments").style.display = 'none';
+    document.getElementById("outfit-2-comments").style.display = 'none';
+    document.getElementById("outfit-3-comments").style.display = 'none';
   };
 
 document.addEventListener("DOMContentLoaded", function() {
     let createBtn = document.getElementById("create-btn")
     const createForm = document.getElementById("everythangCreate")
     const thing = document.getElementById("something")
-    const outfitCardCollection = document.getElementById("user-outfits-collection")
+    const comButtonParent = document.getElementById("user-outfits-collection")
+    const comOne = document.getElementById("outfit-1-comments")
+    const comTwo = document.getElementById("outfit-2-comments")
+    const comThree = document.getElementById("outfit-3-comments")
     
     getTops();
     getBottoms();
@@ -35,17 +43,34 @@ document.addEventListener("DOMContentLoaded", function() {
             thing.style.display = "none";
         }
     })
-    outfitCardCollection.addEventListener ("click", () => {
-        const com = document.getElementById("outfit-1-comments")
-        cmtHideShow = !cmtHideShow;
-        if (cmtHideShow) {
-            com.style.display = "block";
-        } else {
-            com.style.display = "none";
-        }
-    })
-});
 
+    comButtonParent.addEventListener("click", function(e) { 
+        if (e.target.id === "cmt-outfit-1"){
+            cmtHideShow1 = !cmtHideShow1;
+            if (cmtHideShow1) {
+                comOne.style.display = "block";
+            } else {
+                comOne.style.display = "none";
+            }
+        }
+        if (e.target.id === "cmt-outfit-2"){
+            cmtHideShow2 = !cmtHideShow2;
+            if (cmtHideShow2) {
+                comTwo.style.display = "block";
+            } else {
+                comTwo.style.display = "none";
+            }
+        }
+        if (e.target.id === "cmt-outfit-3"){
+            cmtHideShow3 = !cmtHideShow3;
+            if (cmtHideShow3) {
+                comThree.style.display = "block";
+            } else {
+                comThree.style.display = "none";
+            }
+        }
+    });
+})
 
 const getTops = () => {
     const articleCon = document.getElementById("top-inner")
@@ -211,13 +236,11 @@ const renderOutfit = (outfit, num) =>{
 }
 
 const buttons = () => {
-    
     const outfitCardCollection = document.getElementById("user-outfits-collection")
     outfitCardCollection.addEventListener("click", function(e) {
         if (e.target.className === "like"){
             incrementLike(e.target)
         }
-        
     })
 }
 
