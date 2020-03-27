@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
         render json: comment, except: [:updated_at]
     end
     def create
-        comment = Comment.create(comment)
+        comment = Comment.create(comment_params)
         render json: comment, except: [:updated_at], status:201
     end
 
