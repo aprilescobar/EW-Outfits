@@ -273,17 +273,19 @@ const renderComments = comments => {
 }
 
 const renderCmt = comment => {
-    const btn = document.createElement('button')
-    btn.className = "delete-comment"
-    btn.innerHTML = "✗"
+    // const btn = document.createElement('button')
+    // btn.className = "delete-comment"
+    // btn.innerHTML = "✗"
 
     const li = document.createElement('li')
     li.dataset.id = comment.id
-    li.className = ""
+    li.className = "commentsInput"
     li.innerHTML = `
-        <b >${comment.name} :</b> ${comment.text}
+        <button class="delete-comment">✗</button>
+        <b class="userName">${comment.name} :</b> 
+        <small class= "textInput"> ${comment.text}</small>
         `
-    li.appendChild(btn)
+    // li.appendChild(btn)
 
     const cmtEl1 = document.getElementById(`cmt-outfit-1`).dataset.outfit
     const cmtElNum1 = parseInt(cmtEl1)
