@@ -31,8 +31,6 @@ document.addEventListener("DOMContentLoaded", function() {
     createOutfit();
     getBestOutfits();
     buttons();
-
-    getComments();
         
     createBtn.addEventListener("click", () => {
         addOutfit = !addOutfit;
@@ -200,7 +198,7 @@ const createOutfit = () => {
 const getBestOutfits = () =>{
     fetch("http://localhost:3000/outfits")
     .then(resp => resp.json())
-    .then(outfits => renderBestOutfits(outfits)) 
+    .then(outfits => renderBestOutfits(outfits))
 }
 
 const renderBestOutfits = outfits => {
@@ -211,6 +209,7 @@ const renderBestOutfits = outfits => {
     renderOutfit(numOne, 1)
     renderOutfit(numTwo, 2)
     renderOutfit(numThree, 3)
+    getComments();
 }
 
 const renderOutfit = (outfit, num) =>{
@@ -231,10 +230,10 @@ const renderOutfit = (outfit, num) =>{
 
     let likeEl = document.getElementById(`like-outfit-${num}`)
     likeEl.innerText = `❤️ ${outfit.likes}`
-    likeEl.dataset.id = outfit.id
+    likeEl.dataset.outfit = outfit.id
 
     let cmtEl = document.getElementById(`cmt-outfit-${num}`)
-    cmtEl.dataset.id = outfit.id
+    cmtEl.dataset.outfit = outfit.id
 }
 
 const buttons = () => {
@@ -281,33 +280,31 @@ const renderCmt = comment => {
     li.innerText = `${comment.name}: ${comment.text}`
     li.appendChild(btn)
 
-    const cmtEl1 = document.getElementById(`cmt-outfit-1`).dataset.id
+    const cmtEl1 = document.getElementById(`cmt-outfit-1`).dataset.outfit
     const cmtElNum1 = parseInt(cmtEl1)
 
-    const cmtEl2 = document.getElementById(`cmt-outfit-2`).dataset.id
+    console.log(cmtElNum1)
+
+    const cmtEl2 = document.getElementById(`cmt-outfit-2`).dataset.outfit
     const cmtElNum2 = parseInt(cmtEl2)
     
-    const cmtEl3 = document.getElementById(`cmt-outfit-3`).dataset.id
+    const cmtEl3 = document.getElementById(`cmt-outfit-3`).dataset.outfit
     const cmtElNum3 = parseInt(cmtEl3)
     
     const cmtCard1 = document.getElementById('outfit-1-comments')
     const cmtCard2 = document.getElementById('outfit-2-comments')
     const cmtCard3 = document.getElementById('outfit-3-comments')
-    console.log(li)
 
     if(comment.outfit_id === cmtElNum1) {
         cmtCard1.appendChild(li)
-        console.log("comment card 1 went through", li)
     } else if (comment.outfit_id === cmtElNum2) {
         cmtCard2.appendChild(li)
-        console.log("comment card 2 went through", li)
     } else if (comment.outfit_id === cmtElNum3) {
         cmtCard3.appendChild(li)
-        console.log("comment card 3 went through", li, cmtCard3)
-    }
-
-    
+    }    
 }
+
+
 
 
 
