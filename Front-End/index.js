@@ -250,7 +250,7 @@ const buttons = () => {
 const incrementLike = (likeButton) => {
     let num = likeButton.innerText.split(" ")[1]
     likeButton.innerText = `❤️ ${++num}`
-    fetch(`http://localhost:3000/outfits/${likeButton.dataset.id}`, {
+    fetch(`http://localhost:3000/outfits/${likeButton.dataset.outfit}`, {
         method: "PATCH",
         headers: {
             "content-type": "application/json",
