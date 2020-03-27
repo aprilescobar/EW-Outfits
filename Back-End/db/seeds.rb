@@ -28,9 +28,11 @@ p "Shoes were seeded!"
 o1 = Outfit.create(name: "Basic", season: "Spring", likes: 8, top_id: 4, bottom_id: 1, shoe_id: 5)
 o2 = Outfit.create(name: "Lazy", season: "Fall", likes: 10, top_id: 2, bottom_id: 2, shoe_id: 2)
 o3 = Outfit.create(name: "Athlesure", season: "Summer", likes: 6, top_id: 4, bottom_id: 3, shoe_id: 1)
-
-
 p "Outfits were seeded"
+
+
+
+
 p "."
 p "."
 p "."
