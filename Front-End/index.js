@@ -227,8 +227,9 @@ const renderOutfit = (outfit, num) =>{
     bottomEl.src = bottomImg
 
     let shoeEl = document.getElementById(`shoe-${num}-user-input`)
-    let shoeImg = document.querySelector(`[data-id="shoe ${outfit.shoe_id}"]`).querySelector('img').src
-    shoeEl.src = shoeImg
+    let shoeImg = document.querySelector(`[data-id="shoe ${outfit.shoe_id}"]`)
+    let bugTest = shoeImg.querySelector('img').src
+    shoeEl.src = bugTest
 
     let likeEl = document.getElementById(`like-outfit-${num}`)
     likeEl.innerText = `❤️ ${outfit.likes}`
