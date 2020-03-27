@@ -37,7 +37,7 @@
   }
 
 h1 {
-  background-color: rgb(216, 223, 224);
+  background-color: rgba(208, 217, 223, 0.774);
   color: rgb(13, 78, 62);
   padding: 10px;
   text-align:center;
@@ -87,6 +87,14 @@ h2{
   padding: 8px 20px;
   width: 180px;
 }  
+
+#outfit-form{
+  margin-bottom: 15%;
+}
+
+#something{
+  margin-bottom: 5%;
+}
 
 .like{
   transition-duration: 0.5s;
