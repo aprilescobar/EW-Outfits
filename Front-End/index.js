@@ -305,8 +305,8 @@ const renderCmt = comment => {
 }
 
 function postComment() {
-    const outfitCollection = document.getElementById("user-outfits-collection")
-    outfitCollection.addEventListener("click", e => {
+    // const outfitCollection = document.getElementById("user-outfits-collection")
+    document.addEventListener("click", e => {
         e.preventDefault()
             if (e.target.id === "post1") {
                 let nameInput = document.getElementById("name-1").value
@@ -330,12 +330,77 @@ function postComment() {
                 .then(com => renderCmt(com))
                 e.target.parentNode.reset()
             }
+            if (e.target.id === "post2") {
+                let nameInput = document.getElementById("name-2").value
+                let textInput = document.getElementById("comment-2").value
+                let outfitInput = document.getElementById(`cmt-outfit-2`).dataset.outfit
+                const outfitNum = parseInt(outfitInput)
+                
+                fetch("http://localhost:3000/comments", {
+                    method: "POST",
+                    headers: {
+                        "content-type": "application/json",
+                        "accept": "application/json"
+                    },
+                    body: JSON.stringify({ 
+                        name: nameInput,
+                        text: textInput,
+                        outfit_id: outfitNum
+                    })
+                })
+                .then(resp => resp.json())
+                .then(com => renderCmt(com))
+                e.target.parentNode.reset()
+            }
+            
+            if (e.target.id === "post3") {
+                console.log(e.target)
+                let nameInput = document.getElementById("name-3").value
+                let textInput = document.getElementById("comment-3").value
+                let outfitInput = document.getElementById(`cmt-outfit-3`).dataset.outfit
+                const outfitNum = parseInt(outfitInput)
+                
+                fetch("http://localhost:3000/comments", {
+                    method: "POST",
+                    headers: {
+                        "content-type": "application/json",
+                        "accept": "application/json"
+                    },
+                    body: JSON.stringify({ 
+                        name: nameInput,
+                        text: textInput,
+                        outfit_id: outfitNum
+                    })
+                })
+                .then(resp => resp.json())
+                .then(com => renderCmt(com))
+                e.target.parentNode.reset()
+            }
+            
     })
 }
 
 function deleteComment() {
     const postCollection = document.getElementById("outfit-1-comments")
     postCollection.addEventListener("click", e => {
+        e.preventDefault()
+        if (e.target.className === "delete-comment"){
+            let commentId = e.target.parentNode.dataset.id
+            fetch(`http://localhost:3000/comments/${commentId}`, { method: "DELETE" })
+            e.target.parentNode.remove()
+        }
+    })
+    const postCollectionTwo = document.getElementById("outfit-2-comments")
+    postCollectionTwo.addEventListener("click", e => {
+        e.preventDefault()
+        if (e.target.className === "delete-comment"){
+            let commentId = e.target.parentNode.dataset.id
+            fetch(`http://localhost:3000/comments/${commentId}`, { method: "DELETE" })
+            e.target.parentNode.remove()
+        }
+    })
+    const postCollectionThree = document.getElementById("outfit-3-comments")
+    postCollectionThree.addEventListener("click", e => {
         e.preventDefault()
         if (e.target.className === "delete-comment"){
             let commentId = e.target.parentNode.dataset.id
