@@ -280,7 +280,10 @@ const renderCmt = comment => {
 
     const li = document.createElement('li')
     li.dataset.id = comment.id
-    li.innerText = `${comment.name}: ${comment.text}`
+    li.className = ""
+    li.innerHTML = `
+        <b >${comment.name} :</b> ${comment.text}
+        `
     li.appendChild(btn)
 
     const cmtEl1 = document.getElementById(`cmt-outfit-1`).dataset.outfit
