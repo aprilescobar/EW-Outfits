@@ -210,6 +210,7 @@ const renderBestOutfits = outfits => {
     renderOutfit(numTwo, 2)
     renderOutfit(numThree, 3)
     getComments();
+    postComment();
 }
 
 const renderOutfit = (outfit, num) =>{
@@ -283,8 +284,6 @@ const renderCmt = comment => {
     const cmtEl1 = document.getElementById(`cmt-outfit-1`).dataset.outfit
     const cmtElNum1 = parseInt(cmtEl1)
 
-    console.log(cmtElNum1)
-
     const cmtEl2 = document.getElementById(`cmt-outfit-2`).dataset.outfit
     const cmtElNum2 = parseInt(cmtEl2)
     
@@ -304,6 +303,36 @@ const renderCmt = comment => {
     }    
 }
 
+function postComment() {
+    const outfitCollection = document.getElementById("user-outfits-collection")
+    outfitCollection.addEventListener("click", e => {
+        e.preventDefault()
+            if (e.target.id === "post1") {
+                let nameInput = document.getElementById("name-1").value
+                let textInput = document.getElementById("comment-1").value
+                let outfitInput = document.getElementById(`cmt-outfit-1`).dataset.outfit
+                const outfitNum = parseInt(outfitInput)
+                
+                fetch("http://localhost:3000/comments", {
+                    method: "POST",
+                    headers: {
+                        "content-type": "application/json",
+                        "accept": "application/json"
+                    },
+                    body: JSON.stringify({ 
+                        name: nameInput,
+                        text: textInput,
+                        outfit_id: outfitNum
+                    })
+                })
+                .then(resp => resp.json())
+                .then(com => renderCmt(com))
+                e.target.parentNode.reset()
+            }
+    })
+
+
+}
 
 
 
