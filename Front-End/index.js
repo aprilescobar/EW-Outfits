@@ -354,9 +354,9 @@ const renderCmt = comment => {
 
 
     // COMMENTS SECTION
-    // event listener in place for comment button
-    // on click implement hide and seek functionality (seek)
-    // on seek, the comments card displays (pushing the other outfit cards down)
+    // √√√ event listener in place for comment button
+    // √√√√ on click implement hide and seek functionality (seek)
+    // √√√√ on seek, the comments card displays (pushing the other outfit cards down)
     //  in comments card:
     //      a) display existing comments (div)
     //          i) designate comment name and text to li element
