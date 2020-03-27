@@ -211,6 +211,7 @@ const renderBestOutfits = outfits => {
     renderOutfit(numThree, 3)
     getComments();
     postComment();
+    deleteComment();
 }
 
 const renderOutfit = (outfit, num) =>{
@@ -273,7 +274,7 @@ const renderComments = comments => {
 
 const renderCmt = comment => {
     const btn = document.createElement('button')
-    // btn.className = ""
+    btn.className = "delete-comment"
     btn.innerHTML = "✗"
 
     const li = document.createElement('li')
@@ -330,7 +331,18 @@ function postComment() {
                 e.target.parentNode.reset()
             }
     })
+}
 
+function deleteComment() {
+    const postCollection = document.getElementById("outfit-1-comments")
+    postCollection.addEventListener("click", e => {
+        e.preventDefault()
+        if (e.target.className === "delete-comment"){
+            let commentId = e.target.parentNode.dataset.id
+            fetch(`http://localhost:3000/comments/${commentId}`, { method: "DELETE" })
+            e.target.parentNode.remove()
+        }
+    })
 
 }
 
