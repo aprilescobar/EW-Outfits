@@ -16,7 +16,8 @@
 
 .commentsInput{
   text-align: left;
-  margin-left: 25%;
+  margin-left: 30%;
+  margin-top: 7px;
 }
 
 .userName{
@@ -36,7 +37,7 @@
   }
 
 h1 {
-  background-color: rgb(231, 239, 240);
+  background-color: rgb(216, 223, 224);
   color: rgb(13, 78, 62);
   padding: 10px;
   text-align:center;
@@ -47,6 +48,8 @@ h1 {
 
 h3{
   text-align:center;
+  background-color: rgb(231, 235, 240);
+  color: rgb(13, 78, 62);
 }
 
 h2{
@@ -54,12 +57,24 @@ h2{
 }
 
 
-.forms {
-  border-top: 1px solid rgb(11, 44, 11);
+.nameForms {
+  border-top: 1x solid rgb(11, 44, 11);
   border-bottom: 1px solid rgb(11, 44, 11);
   border-left: 1px solid rgb(11, 44, 11);
   border-right: 1px solid rgb(11, 44, 11);
-  border-radius: 4px;
+  border-radius: 5px;
+  height: 38px;
+  width: 80px;
+}
+
+.forms {
+  border-top: 1x solid rgb(11, 44, 11);
+  border-bottom: 1px solid rgb(11, 44, 11);
+  border-left: 1px solid rgb(11, 44, 11);
+  border-right: 1px solid rgb(11, 44, 11);
+  border-radius: 5px;
+  height: 38px;
+  width: 200px;
 }
 
 .create_outfit_button{
@@ -95,6 +110,7 @@ h2{
   padding: 6px 0px;
   width: 50px;
   text-align:center;
+  margin-left: 2px;
 }  
 
 .delete-comment{
